@@ -1,0 +1,8 @@
+{
+  "name": "Musical AR — Um sopro de vida | Universo GAP",
+  "description": "A música encontra a infância em um espetáculo solidário. Musical solidário do Universo GAP, 24/11 às 17h e 19h30, no Teatro Municipal Eduardo Abdelnor, em Marabá.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
