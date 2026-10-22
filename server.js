@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -8,12 +9,16 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static assets from the current directory
-app.use(express.static(__dirname));
+const distDir = path.join(__dirname, 'dist');
+const staticDir = fs.existsSync(distDir) ? distDir : __dirname;
 
-// Serve index.html for root and SPA routes
+app.use(express.static(staticDir));
+
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  const indexFile = fs.existsSync(path.join(distDir, 'index.html'))
+    ? path.join(distDir, 'index.html')
+    : path.join(__dirname, 'index.html');
+  res.sendFile(indexFile);
 });
 
 app.listen(PORT, '0.0.0.0', () => {
