@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
 
       <div className="hero-copy">
         <div className="eyebrow">
-          <span className="dot"></span> PROJETO A 2026
+          <span className="dot"></span> PROJETO AR 2026
         </div>
         <img className="hero-logo" src="/hero-logo.svg" alt="Musical AR — Um sopro de vida" />
         <h1>

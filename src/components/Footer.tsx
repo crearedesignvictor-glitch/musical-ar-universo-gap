@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
       </div>
       <div className="project-footer-bottom">
         <span>
-          © 2026 Universo GAP · Projeto A 2026
+          © 2026 Universo GAP · Projeto AR 2026
           <br />
           Uma realização da Universo GAP.
         </span>

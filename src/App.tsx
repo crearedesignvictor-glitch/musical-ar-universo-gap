@@ -16,22 +16,53 @@ export const App: React.FC = () => {
   const [selectedShow, setSelectedShow] = useState<ShowCardData | null>(null);
 
   useEffect(() => {
-    // Scroll restoration from session storage
+    // Ensure manual scroll restoration so we control exact behavior
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
 
-    const restoreScroll = () => {
+    // Detect if this is a reload (F5) or fresh open
+    let isReload = false;
+    try {
+      const navEntries = performance.getEntriesByType('navigation');
+      if (navEntries && navEntries.length > 0) {
+        isReload = (navEntries[0] as PerformanceNavigationTiming).type === 'reload';
+      } else {
+        isReload = (performance as any)?.navigation?.type === 1;
+      }
+    } catch (_) {
+      isReload = false;
+    }
+
+    if (isReload) {
+      // On F5 (reload), keep the exact current scroll position
       try {
-        const s = sessionStorage.getItem('saved_scroll_y');
-        if (s !== null) {
-          const y = parseInt(s, 10);
-          if (!isNaN(y)) window.scrollTo(0, y);
+        const savedY = sessionStorage.getItem('saved_scroll_y');
+        if (savedY !== null) {
+          const y = parseInt(savedY, 10);
+          if (!isNaN(y)) {
+            window.scrollTo({ top: y, left: 0, behavior: 'instant' as ScrollBehavior });
+          }
         }
       } catch (_) {}
-    };
+    } else {
+      // On opening the site, always start at the top (never in the donation section)
+      try {
+        sessionStorage.removeItem('saved_scroll_y');
+      } catch (_) {}
 
-    restoreScroll();
+      // Clear any hash that could cause unwanted auto-scroll
+      if (window.location.hash) {
+        try {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        } catch (_) {}
+      }
+
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+      });
+    }
 
     let scrollDebounce: any;
     const handleScroll = () => {
@@ -40,7 +71,7 @@ export const App: React.FC = () => {
         try {
           sessionStorage.setItem('saved_scroll_y', String(window.scrollY));
         } catch (_) {}
-      }, 80);
+      }, 50);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -50,12 +81,24 @@ export const App: React.FC = () => {
       } catch (_) {}
     });
 
-    // Smooth scroll for internal anchor links
+    // Smooth scroll for internal anchor links and return to top
     const handleAnchorClick = (e: MouseEvent) => {
       const link = (e.target as HTMLElement).closest('a[href^="#"]');
       if (!link) return;
       const href = link.getAttribute('href');
-      if (!href || href === '#') return;
+      if (!href) return;
+
+      // Returning to top (e.g. "Voltar ao início", header logo)
+      if (href === '#inicio' || href === '#') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        try {
+          sessionStorage.setItem('saved_scroll_y', '0');
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        } catch (_) {}
+        return;
+      }
+
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();

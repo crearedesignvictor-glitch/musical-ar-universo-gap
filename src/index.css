@@ -129,6 +129,11 @@ header nav.header-navigation{position:static!important;inset:auto!important;disp
 /* Requested desktop-only alignment; mobile styles remain unchanged. */
 @media(min-width:901px){
  .hero-copy .hero-partners{justify-content:flex-start!important;margin-left:0!important;margin-right:0!important}
+ .new-doodles .hero-cloud-art{
+  top:14px!important;
+  left:calc(max(5vw,calc((100vw - 1200px)/2)) - 90px)!important;
+  width:270px!important;
+ }
  #solidario .solidarity-inner{align-items:start!important}
  #solidario .solidarity-inner>div:first-child{padding-top:28px}
  footer .footer-brands{justify-content:center!important;width:100%;margin-left:auto;margin-right:auto}
@@ -234,8 +239,8 @@ header nav.header-navigation{position:static!important;inset:auto!important;disp
 @media(max-width:640px){
 #inspiracao{padding:58px 22px}#inspiracao .insp-intro{margin-bottom:40px}#inspiracao .insp-logo{width:88%;max-width:360px;margin-bottom:18px}
 #inspiracao p{font-size:15px}#inspiracao .insp-section-head{grid-template-columns:1fr;gap:18px}#inspiracao h2{font-size:32px}
-#inspiracao .insp-filters{width:100%;border-radius:20px;justify-content:center;gap:4px;margin:28px 0 24px}
-#inspiracao .insp-filter{padding:11px 10px;font-size:11px;flex:1;white-space:nowrap}
+#inspiracao .insp-filters{width:100%;max-width:100%;box-sizing:border-box;border-radius:24px;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;gap:4px;padding:4px;margin:28px auto 24px}
+#inspiracao .insp-filter{padding:10px 4px;font-size:clamp(10px,2.8vw,12px);flex:1 1 0;min-width:0;text-align:center;white-space:nowrap;letter-spacing:-0.2px}
 #inspiracao .insp-grid{grid-template-columns:1fr;gap:24px;max-width:440px}
 #inspiracao .insp-poster{padding:22px}#inspiracao .insp-poster h3{font-size:36px}#inspiracao .insp-poster-name{font-size:16px}
 #inspiracao .insp-show-info{padding:20px 8px 8px}#inspiracao .insp-show-info h3{font-size:25px}

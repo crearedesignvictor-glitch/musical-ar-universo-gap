@@ -33,7 +33,7 @@ export const Participar: React.FC = () => {
           <p>Marabá, Pará</p>
         </div>
         <div>
-          <h3>Musical A 2026</h3>
+          <h3>Musical AR 2026</h3>
           <p>Sessões às 17h e 19h30</p>
         </div>
       </div>
