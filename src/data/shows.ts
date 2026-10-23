@@ -1,4 +1,7 @@
 import { ShowCardData } from '../types';
+import sampaioImg from '../assets/images/regenerated_image_1792721069404.png';
+import curieImg from '../assets/images/regenerated_image_1792721067364.png';
+import rochaImg from '../assets/images/regenerated_image_1792721065392.png';
 
 export const SHOWS_DATA: ShowCardData[] = [
   {
@@ -9,10 +12,10 @@ export const SHOWS_DATA: ShowCardData[] = [
     dateCode: '14',
     dateTime: '14 NOV • 17h',
     location: 'MARABÁ / PA',
-    headline: 'A coragem de investigar. A esperança de transformar.',
+    headline: 'A coragem de investigar.\nA esperança de transformar.',
     venue: 'Teatro Usina da Paz',
     blurb: 'Teatro, dança e música brasileira dão vida à trajetória de Tatiana Sampaio, celebrando a ciência nacional, a persistência dos pesquisadores e as descobertas que abrem novos caminhos para a humanidade. Uma homenagem às muitas mãos e mentes que transformam conhecimento em esperança.',
-    image: '/assets/show-1.webp',
+    image: sampaioImg,
     alt: 'Aluno caracterizado para o espetáculo',
   },
   {
@@ -37,10 +40,10 @@ export const SHOWS_DATA: ShowCardData[] = [
     dateCode: '27',
     dateTime: '27 NOV • 17h',
     location: 'MARABÁ / PA',
-    headline: 'O sonho de aprender. A coragem de realizar.',
+    headline: 'O sonho de aprender.\nA coragem de realizar.',
     venue: 'Teatro Municipal Eduardo Abdelnor',
     blurb: 'Teatro, dança e canções inesquecíveis da Disney dão vida à trajetória de Marie Curie, uma mulher que enfrentou barreiras para estudar e revolucionou a ciência. Uma história de sonhos, descobertas, amor, perdas e conquistas, que celebra a persistência e o conhecimento.',
-    image: '/assets/show-curie.webp',
+    image: curieImg,
     alt: 'Criança caracterizada para o espetáculo inspirado em Marie Curie',
   },
   {
@@ -54,7 +57,7 @@ export const SHOWS_DATA: ShowCardData[] = [
     headline: 'Uma vida. Muitas histórias. Um lugar no coração de Marabá.',
     venue: 'Teatro Municipal Eduardo Abdelnor',
     blurb: 'Teatro, dança e música brasileira resgatam a trajetória de Leonildo Borges Rocha, entre sonhos, empreendedorismo, fé e generosidade. Uma homenagem que percorre as memórias de Marabá e celebra os vínculos, as oportunidades e os gestos que permanecem na história e no coração das pessoas.',
-    image: '/assets/show-2.webp',
+    image: rochaImg,
     alt: 'Aluno caracterizado para o espetáculo',
   },
 ];

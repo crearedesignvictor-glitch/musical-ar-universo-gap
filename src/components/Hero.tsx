@@ -2,6 +2,14 @@ import React from 'react';
 import { HeroFlyer } from './HeroFlyer';
 
 export const Hero: React.FC = () => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
   return (
     <section id="inicio" className="hero">
       <div className="hero-doodles new-doodles" aria-hidden="true">
@@ -23,32 +31,30 @@ export const Hero: React.FC = () => {
           Com música, movimento e imaginação, crianças sobem ao palco para compartilhar uma
           mensagem de esperança e paz.
         </p>
-        <a
-          className="button"
-          href="#participar"
-          style={{ textAlign: 'center', justifyContent: 'center' }}
-        >
-          24 de Novembro — Teatro Municipal Eduardo Abdelnor, Marabá–PA
+        <a className="button" href="#participar">
+          <span className="hero-event-date">24 de Novembro</span>
+          <span className="hero-event-location">Teatro Municipal Eduardo Abdelnor</span>
         </a>
       </div>
 
       <div className="hero-picture">
-        <img
-          src="/hero-stage.webp"
-          alt="Imagem ilustrativa de crianças cantando em um palco iluminado em azul"
-          fetchPriority="high"
+        <video
+          ref={videoRef}
+          className="hero-video"
+          src="/assets/aistudio/Tre_s_crianc_as_cantando_no_palco_20261022230031_9f1448b7.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
         />
-        <span className="photo-note">Imagem ilustrativa do universo do espetáculo</span>
       </div>
 
       <div className="hero-cloud"></div>
 
-      <a
-        className="button hero-mobile-cta"
-        href="#participar"
-        style={{ textAlign: 'center', justifyContent: 'center' }}
-      >
-        24 de Novembro — Teatro Municipal Eduardo Abdelnor, Marabá–PA
+      <a className="button hero-mobile-cta" href="#participar">
+        <span className="hero-event-date">24 de Novembro</span>
+        <span className="hero-event-location">Teatro Municipal Eduardo Abdelnor</span>
       </a>
     </section>
   );

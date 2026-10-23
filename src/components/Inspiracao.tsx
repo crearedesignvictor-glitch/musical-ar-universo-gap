@@ -9,6 +9,14 @@ interface InspiracaoProps {
 export const Inspiracao: React.FC<InspiracaoProps> = ({ onSelectShow }) => {
   const [filter, setFilter] = useState<FilterDate>('all');
 
+  React.useEffect(() => {
+    // Pre-warm show poster images for immediate rendering without delays
+    SHOWS_DATA.forEach((show) => {
+      const img = new Image();
+      img.src = show.image;
+    });
+  }, []);
+
   return (
     <section className="insp-program" id="inspiracao">
       <div className="insp-intro">
@@ -20,8 +28,8 @@ export const Inspiracao: React.FC<InspiracaoProps> = ({ onSelectShow }) => {
           width="2048"
         />
         <p>
-          Inspiração é um movimento artístico-cultural e educativo dedicado a compartilhar
-          trajetórias humanas e histórias que inspiram gerações.
+          Um movimento artístico, cultural e educativo dedicado a compartilhar trajetórias humanas
+          que inspiram gerações.
         </p>
       </div>
 
@@ -102,13 +110,18 @@ export const Inspiracao: React.FC<InspiracaoProps> = ({ onSelectShow }) => {
                   alt={show.alt}
                   className="insp-poster-photo"
                   height="1500"
-                  loading="lazy"
+                  loading="eager"
+                  decoding="async"
                   src={show.image}
                   width="1000"
                 />
                 <div className="insp-poster-foot">
                   <span>InspirAÇÃO</span>
-                  <span>{show.dateCode} NOV ↗</span>
+                  <span>
+                    {show.dateCode} NOV ↗
+                    <br />
+                    {show.dateTime.split(' • ')[1]}
+                  </span>
                 </div>
               </button>
 
@@ -119,7 +132,16 @@ export const Inspiracao: React.FC<InspiracaoProps> = ({ onSelectShow }) => {
                   </span>
                   <span>{show.location}</span>
                 </div>
-                <h3>{show.headline}</h3>
+                <h3>
+                  {show.headline.includes('\n')
+                    ? show.headline.split('\n').map((line, idx) => (
+                        <React.Fragment key={idx}>
+                          {idx > 0 && <br />}
+                          {line}
+                        </React.Fragment>
+                      ))
+                    : show.headline}
+                </h3>
                 <p className="insp-show-venue">{show.venue}</p>
                 <p className="insp-show-blurb">{show.blurb}</p>
                 <button

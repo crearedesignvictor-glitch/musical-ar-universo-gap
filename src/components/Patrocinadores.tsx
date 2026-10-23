@@ -27,6 +27,11 @@ export const Patrocinadores: React.FC = () => {
           <span>Logomarca do patrocinador</span>
         </div>
       </div>
+      <div className="support-action">
+        <a href="#contato" className="button support-button">
+          Seja um apoiador
+        </a>
+      </div>
     </section>
   );
 };
