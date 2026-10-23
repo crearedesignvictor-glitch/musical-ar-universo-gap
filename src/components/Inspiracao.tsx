@@ -78,7 +78,7 @@ export const Inspiracao: React.FC<InspiracaoProps> = ({ onSelectShow }) => {
           return (
             <article
               key={show.id}
-              className="insp-show-card"
+              className="insp-show-card reveal"
               data-date={show.dateCode}
               hidden={isHidden}
             >
