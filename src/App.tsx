@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { SponsorTicker } from './components/SponsorTicker';
 import { Historia } from './components/Historia';
 import { MarqueeStrip } from './components/MarqueeStrip';
 import { Inspiracao } from './components/Inspiracao';
@@ -172,6 +173,7 @@ export const App: React.FC = () => {
 
       <main>
         <Hero />
+        <SponsorTicker />
         <Historia />
         <MarqueeStrip />
         <Inspiracao onSelectShow={(show) => setSelectedShow(show)} />

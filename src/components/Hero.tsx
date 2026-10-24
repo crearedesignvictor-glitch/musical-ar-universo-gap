@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroFlyer } from './HeroFlyer';
+import { HeroSponsors } from './HeroSponsors';
 
 export const Hero: React.FC = () => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
@@ -35,6 +36,9 @@ export const Hero: React.FC = () => {
           <span className="hero-event-date">24 de Novembro</span>
           <span className="hero-event-location">Teatro Municipal Eduardo Abdelnor</span>
         </a>
+        <div className="hero-sponsors-desktop">
+          <HeroSponsors />
+        </div>
       </div>
 
       <div className="hero-picture">
@@ -56,6 +60,9 @@ export const Hero: React.FC = () => {
         <span className="hero-event-date">24 de Novembro</span>
         <span className="hero-event-location">Teatro Municipal Eduardo Abdelnor</span>
       </a>
+      <div className="hero-sponsors-mobile">
+        <HeroSponsors />
+      </div>
     </section>
   );
 };
