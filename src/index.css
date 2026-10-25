@@ -210,7 +210,7 @@ header nav.header-navigation{position:static!important;inset:auto!important;disp
 #inspiracao{background:#f1f8fc;color:#193f6d;padding:88px max(5vw,calc((100vw - 1120px)/2));overflow:hidden}
 #inspiracao *,#insp-dialog *{box-sizing:border-box}
 #inspiracao .insp-intro{text-align:center;max-width:780px;margin:0 auto 70px}
-#inspiracao .insp-logo{display:block;width:min(500px,85%);height:auto;margin:0 auto 26px;filter:brightness(0) saturate(100%) invert(22%) sepia(29%) saturate(1300%) hue-rotate(174deg) brightness(92%) contrast(94%)}
+#inspiracao .insp-logo{display:block;width:min(500px,85%);height:auto;margin:0 auto 26px}
 #inspiracao p{font-size:17px;line-height:1.8;color:#54728a}
 #inspiracao .insp-section-head{display:grid;grid-template-columns:1.7fr 1fr;align-items:end;gap:38px;margin-bottom:32px}
 #inspiracao .insp-eyebrow{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#408dc0}

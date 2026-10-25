@@ -21,11 +21,11 @@ export const Inspiracao: React.FC<InspiracaoProps> = ({ onSelectShow }) => {
     <section className="insp-program" id="inspiracao">
       <div className="insp-intro">
         <img
-          alt="Inspiração — Histórias que inspiram futuros"
+          alt="Inspiração — Histórias que inspiram"
           className="insp-logo"
-          height="682"
+          height="724"
           src="/assets/inspiracao-logo.png"
-          width="2048"
+          width="2172"
         />
         <p>
           Um movimento artístico, cultural e educativo dedicado a compartilhar trajetórias humanas
