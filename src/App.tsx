@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { SponsorTicker } from './components/SponsorTicker';
 import { Historia } from './components/Historia';
 import { MarqueeStrip } from './components/MarqueeStrip';
 import { Inspiracao } from './components/Inspiracao';
 import { Solidario } from './components/Solidario';
 import { Participar } from './components/Participar';
-import { Patrocinadores } from './components/Patrocinadores';
 import { Closing } from './components/Closing';
 import { Footer } from './components/Footer';
 import { AudioPlayer } from './components/AudioPlayer';
@@ -173,13 +171,11 @@ export const App: React.FC = () => {
 
       <main>
         <Hero />
-        <SponsorTicker />
         <Historia />
         <MarqueeStrip />
         <Inspiracao onSelectShow={(show) => setSelectedShow(show)} />
         <Solidario />
         <Participar />
-        <Patrocinadores />
         <Closing />
       </main>
 
